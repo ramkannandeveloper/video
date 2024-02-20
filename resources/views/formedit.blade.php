@@ -98,7 +98,7 @@
             var postId = $('#twitterpost').val();
             if(postId == '')
             {
-                alert('Enter post id');
+                alert('Enter post');
                 return;
             }
             var html = '<blockquote class="twitter-tweet"><a href="https://twitter.com/username/status/'+postId+'">Twitter Post: '+postId+'</a></blockquote></br>'
