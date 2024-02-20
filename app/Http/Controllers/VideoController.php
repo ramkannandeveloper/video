@@ -40,7 +40,7 @@ class VideoController extends Controller
         $videoPath = $request->file('video')->store('uploads/videos', ['disk' => 'my_files']);
 
         // Generate screenshot
-        $screenshotPath = 'uploads/videos/'.basename($videoPath).'.jpg';
+        $screenshotPath = 'uploads/videos/' . basename($videoPath) . '.jpg';
         $ffmpeg = FFMpeg::create();
         $video = $ffmpeg->open($videoPath);
         $screenshotTime = 5;
@@ -61,9 +61,9 @@ class VideoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Video $video)
     {
-        //
+        return view('formshow', ['video' => $video]);
     }
 
     /**
@@ -96,7 +96,7 @@ class VideoController extends Controller
             $data['video_path'] = $videoPath;
 
             // Generate screenshot
-            $screenshotPath = 'uploads/videos/'.basename($videoPath).'.jpg';
+            $screenshotPath = 'uploads/videos/' . basename($videoPath) . '.jpg';
             $ffmpeg = FFMpeg::create();
             $video = $ffmpeg->open($videoPath);
             $screenshotTime = 5;
