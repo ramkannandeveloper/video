@@ -32,16 +32,16 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Twitter Post Id</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Twitter Post</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label for="">Example : 1754810793126756577</label>
-                    <input type="text" class="form-control" id="twitterpost" placeholder="Enter post id" />
+                    <label for="">Example : https://publish.twitter.com/?url=https://twitter.com/MJ_Bishnoi_/status/1759234889810067502#</label>
+                    <input type="text" class="form-control" id="twitterpost" placeholder="Enter post url" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="addtwittercontent">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="addtwittercontent">Add</button>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@
                 });
                 editor.ui.registry.addButton('twitter', {
                     text: 'Twitter',
-                    icon: 'new-document',
+                    icon: 'embed-page',
                     context: 'twitter',
                     onAction: function(_) {
                         $('#tinymce_item').val(editor.id);
@@ -101,7 +101,7 @@
                 alert('Enter post id');
                 return;
             }
-            var html = '<blockquote class="twitter-tweet"><a href="https://twitter.com/username/status/'+postId+'">Twitter Post Id: '+postId+'</a></blockquote></br>'
+            var html = '<blockquote class="twitter-tweet"><a href="https://twitter.com/username/status/'+postId+'">Twitter Post: '+postId+'</a></blockquote></br>'
             var editor = $('#tinymce_item').val();
             tinymce.get(editor).execCommand('mceInsertContent', false, html);
             $('#twitterpost').val('');
